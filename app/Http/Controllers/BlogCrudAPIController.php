@@ -16,7 +16,11 @@ class BlogCrudAPIController extends Controller
      */
     public function index()
     {
-        return view('blogAPI', ['user' => Auth::user()]);
+        $posts = BlogPost::all(); //fetch all blog posts from DB
+        return view('api/blogPost', [
+            'user' => Auth::id(),
+            'posts' => $posts,
+            ]);
     }
 
     public function showAllPosts()
@@ -41,7 +45,7 @@ class BlogCrudAPIController extends Controller
         return response()->json($blogPost, 201);
     }
 
-    public function updateTravel($id, Request $request)
+    public function updatePost($id, Request $request)
     {
         $blogPost = BlogPost::findOrFail($id);
         $blogPost->update($request->all());
@@ -49,9 +53,10 @@ class BlogCrudAPIController extends Controller
         return response()->json($blogPost, 200);
     }
 
-    public function deleteTravel($id)
+    public function deletePost($id)
     {
+        dd($id);
         BlogPost::findOrFail($id)->delete();
-        return response('Travel deleted Successfully', 200);
+        return response('Post deleted Successfully', 200);
     }
 }
