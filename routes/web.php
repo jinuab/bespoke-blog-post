@@ -32,9 +32,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * Login Routes
          */
-        Route::get('/login', 'LoginController@show')->name('login.show');
+        Route::get('/login', 'LoginController@show')->name('login');
         Route::post('/login', 'LoginController@login')->name('login.perform');
-
     });
 
     Route::group(['middleware' => ['auth']], function() {
@@ -55,12 +54,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     /* Routes for API calls */
     Route::group([
+        'prefix' => 'api',
         'middleware' => ['auth']
     ], function () {
-        Route::get('api/post/all',  [BlogCrudAPIController::class, 'showAllPosts']);
-        Route::get('api/post/{id}',  [BlogCrudAPIController::class, 'showOnePost']);
-        Route::get('api/post',  [BlogCrudAPIController::class, 'createPost']);
-        Route::get('api/post/{id}',  [BlogCrudAPIController::class, 'updateTravel']);
-        Route::get('api/post/delete/{id}',  [BlogCrudAPIController::class, 'deleteTravel']);
+        Route::get('blog-posts',  [BlogCrudAPIController::class, 'index'])->name('blog-posts');
+        Route::get('blog-post/all',  [BlogCrudAPIController::class, 'showAllPosts']);
+        Route::get('blog-post/{id}',  [BlogCrudAPIController::class, 'showOnePost']);
+        Route::post('blog-post',  [BlogCrudAPIController::class, 'createPost']);
+        Route::put('blog-post/{id}',  [BlogCrudAPIController::class, 'updatePost']);
+        Route::delete('blog-post/delete/{id}',  [BlogCrudAPIController::class, 'deletePost']);
     });
 });
