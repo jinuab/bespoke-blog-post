@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <meta name="generator" content="Hugo 0.87.0">
         <title>Bespoke Blog System</title>
 
         <!-- Bootstrap core CSS -->

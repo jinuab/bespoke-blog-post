@@ -17,6 +17,7 @@
                 <h3>Welcome, {{auth()->user()->username}}</h3>
                 <div class="text-end">
                     <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">Logout</a>
+                    <a href="{{ route('blog-posts') }}" class="btn btn-outline-secondary me-2">API Calls</a>
                 </div>
             @endauth
 
