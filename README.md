@@ -7,6 +7,39 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## About Bespoke application
+
+This application is a simple CRUD Blog post with login. The user could register themselves and participate in posting new blogs and view the other blogs as well. They can make changes to their posts. The post body is WYSIWYG editor(CKEditor). This application is also featured with CRUD API functionality.
+
+## Database
+
+It uses MySQL as the database to store the data for posts and users.
+
+## Version
+
+<table>
+    <tr>
+        <td><strong>#</strong></td>
+        <td><strong>Software</strong></td>
+        <td><strong>Verssion</strong></td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>PHP</td>
+        <td>8.0.2</td>
+    </tr>    
+    <tr>
+        <td>2</td>
+        <td>Laravel</td>
+        <td>9.19</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>ckeditor</td>
+        <td>5</td>
+    </tr>
+</table>
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
