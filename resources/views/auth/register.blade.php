@@ -4,8 +4,6 @@
     <form method="post" action="{{ route('register.perform') }}">
 
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-        <img class="mb-4" src="{!! url('images/bootstrap-logo.svg') !!}" alt="" width="72" height="57">
-
         <h1 class="h3 mb-3 fw-normal">Register</h1>
 
         <div class="form-group form-floating mb-3">
@@ -40,8 +38,11 @@
             @endif
         </div>
 
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
-
-        <p class="mt-5 mb-3 text-muted">&copy; {{date('Y')}}</p>
+        <button class="w-50 btn btn-lg btn-primary" type="submit">Register</button>
+        <div class="pt-5 align-content-center">
+            <p>Already registered? please click below to login</p>
+            <a href="{{ route('login.perform') }}" class="btn btn-success w-50">Login</a>
+        </div>
+        <p class="mt-5 mb-3 text-muted">{{ config('app.name') }} &copy; {{date('Y')}}</p>
     </form>
 @endsection

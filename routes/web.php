@@ -20,7 +20,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     /**
      * Home Routes
      */
-    Route::get('/', 'HomeController@index')->name('home.index');
+    Route::group(['middleware' => ['guest']], function() {
+        Route::get('/home', [BlogPostController::class, 'index']);
+        Route::get('/blog', [BlogPostController::class, 'index']);
+        Route::get('/blog/{blogPost}', [BlogPostController::class, 'show']);
+        Route::post('/blog/{id}', [BlogPostController::class, 'addComment']);
+    });
 
     Route::group(['middleware' => ['guest']], function() {
         /**
@@ -43,8 +48,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
 
         /* Routes for Blog posts */
-        Route::get('/blog', [BlogPostController::class, 'index']);
-        Route::get('/blog/{blogPost}', [BlogPostController::class, 'show']);
+        Route::get('/', [BlogPostController::class, 'index']);
         Route::get('/blog/create/post', [BlogPostController::class, 'create']); //shows create post form
         Route::post('/blog/create/post', [BlogPostController::class, 'store']); //saves the created post to the databse
         Route::get('/blog/{blogPost}/edit', [BlogPostController::class, 'edit']); //shows edit post form

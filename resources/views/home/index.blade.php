@@ -17,6 +17,6 @@
 
     @guest
         <h1>Homepage</h1>
-        <p class="lead">Your viewing the home page. Please login to view the restricted data.</p>
+        <p class="small">Your viewing the home page. Please login to make changes to the blog.</p>
     @endguest
 @endsection

@@ -27,10 +27,6 @@
                 }
             }
         </style>
-
-
-        <!-- Custom styles for this template -->
-        <link href="{!! url('assets/css/app.css') !!}" rel="stylesheet">
     </head>
     <body>
 
@@ -42,8 +38,6 @@
 
     <!-- importing Bootstrap JS core -->
     <script src="{!! url('assets/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
-
-
 
     </body>
 </html>

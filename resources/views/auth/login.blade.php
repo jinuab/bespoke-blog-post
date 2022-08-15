@@ -1,6 +1,10 @@
 @extends('layouts.auth-master')
 
 @section('content')
+    <div class="row pt-4 pb-4 m-auto text-center w-50">
+        <h1 class="text-center">Visit Home page as Guest</h1>
+        <a class="btn btn-outline-success" href="/home">Click here</a>
+    </div>
     <form method="post" action="{{ route('login.perform') }}">
 
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -24,8 +28,13 @@
             @endif
         </div>
 
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+        <button class="w-50 btn btn-lg btn-primary" type="submit">Login</button>
 
-        <p class="mt-5 mb-3 text-muted">Bespoke Blog System &copy; {{date('Y')}}</p>
+        <div class="pt-5">
+            <p>Not registered yet? please click below.</p>
+            <a href="{{ route('register.perform') }}" class="btn btn-warning w-50">Sign-up</a>
+        </div>
+
+        <p class="mt-5 mb-3 text-muted">{{ config('app.name') }} &copy; {{date('Y')}}</p>
     </form>
 @endsection
