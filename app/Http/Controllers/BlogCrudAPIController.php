@@ -55,7 +55,6 @@ class BlogCrudAPIController extends Controller
 
     public function deletePost($id)
     {
-        dd($id);
         BlogPost::findOrFail($id)->delete();
         return response('Post deleted Successfully', 200);
     }

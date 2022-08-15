@@ -13,9 +13,18 @@ class BlogPostController extends Controller
     {
         $posts = BlogPost::all(); //fetch all blog posts from DB
 
+        if(Auth::check())
+        {
+            $loggedUser_id = Auth::user()->id;
+        }
+        else
+        {
+            $loggedUser_id = '';
+        }
+
         return view('blog.index', [
             'posts' => $posts,
-
+            'loggedUser_id' => $loggedUser_id
         ]); //returns the view with posts
     }
 
