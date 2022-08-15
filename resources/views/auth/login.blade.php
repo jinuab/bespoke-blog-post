@@ -3,7 +3,7 @@
 @section('content')
     <div class="row pt-4 pb-4 m-auto text-center w-50">
         <h1 class="text-center">Visit Home page as Guest</h1>
-        <a class="btn btn-outline-success" href="/home">Click here</a>
+        <a class="btn btn-outline-success shadow ml-3 font-weight-bold align-content-center" href="/home">View Blogs</a>
     </div>
     <form method="post" action="{{ route('login.perform') }}">
 

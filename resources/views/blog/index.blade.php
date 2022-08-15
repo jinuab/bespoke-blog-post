@@ -45,7 +45,16 @@
                             <td>{{ $post->created_at }}</td>
                             @auth
                                 <td>
-                                    <a href="/blog/{{ $post->id }}/edit" class="btn btn-outline-primary">Edit Post</a>
+                                    @if ($loggedUser_id == json_decode($post->user_id)->id)
+                                        <a href="/blog/{{ $post->id }}/edit" class="btn btn-outline-primary">Edit Post</a>
+                                        <form id="delete-frm" class="" action="./blog/delete/{{ $post->id }}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button class="btn btn-danger">Delete Post</button>
+                                        </form>
+                                    @else
+                                        -
+                                    @endif
                                 </td>
                             @endauth
                         </tr>

@@ -24,7 +24,11 @@
                                 </td>
                                 <td>{{ json_decode($post->user_id)->username }}</td>
                                 <td>
-                                    <a href="./blog-post/delete/{{ $post->id }}" class="btn btn-outline-danger">Delete Post</a>
+                                    <form id="delete-frm" class="" action="./blog-post/delete/{{ $post->id }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button class="btn btn-danger">Delete Post</button>
+                                    </form>
                                 </td>
                             </tr>
                         @empty
