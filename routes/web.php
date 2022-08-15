@@ -53,7 +53,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('/blog/create/post', [BlogPostController::class, 'store']); //saves the created post to the databse
         Route::get('/blog/{blogPost}/edit', [BlogPostController::class, 'edit']); //shows edit post form
         Route::put('/blog/{blogPost}/edit', [BlogPostController::class, 'update']); //commits edited post to the database
-        Route::delete('/blog/{blogPost}', [BlogPostController::class, 'destroy']); //deletes post from the database
+        Route::delete('/blog/delete/{blogPost}', [BlogPostController::class, 'destroy']); //deletes post from the database
     });
 
     /* Routes for API calls */
