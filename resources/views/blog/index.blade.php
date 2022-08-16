@@ -13,6 +13,9 @@
                             <p>Create new Post</p>
                             <a href="/blog/create/post" class="btn btn-primary btn-sm">Add Post</a>
                         </div>
+                        <div class="col-8">
+                            <a href="/api/import" class="btn btn-outline-success btn-sm">Import CSV</a>
+                        </div>
                     @endauth
                 </div>
 
@@ -41,7 +44,7 @@
                             <td>
                                 <a href="./blog/{{ $post->id }}">{{ ucfirst($post->title) }}</a>
                             </td>
-                            <td>{{ json_decode($post->user_id)->username }}</td>
+                            <td>{{ json_decode($post->user_id)->username || '' }}</td>
                             <td>{{ $post->created_at }}</td>
                             @auth
                                 <td>
