@@ -2,6 +2,7 @@
 
 use \App\Http\Controllers\BlogPostController;
 use \App\Http\Controllers\BlogCrudAPIController;
+use App\Http\Controllers\ImportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -67,5 +68,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('blog-post',  [BlogCrudAPIController::class, 'createPost']);
         Route::put('blog-post/{id}',  [BlogCrudAPIController::class, 'updatePost']);
         Route::delete('blog-post/delete/{id}',  [BlogCrudAPIController::class, 'deletePost']);
+
+        /* Below routes for importing blog via CSV */
+        Route::get('/import', 'BlogImportController@import');
+        Route::post('/uploadFile', 'BlogImportController@uploadFile');
     });
 });
